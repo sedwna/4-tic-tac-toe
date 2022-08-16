@@ -1,5 +1,6 @@
 # 4-tic-tak-toe
 from termcolor import colored
+from time import sleep
 
 board = list(range(1, 10))
 
@@ -20,6 +21,59 @@ def check_board(plyr):
     return win
 
 
+def plyer_move(num, shape):
+    while True:
+        move_p = int(input(f"turn player({num}) pls choose your move(1-9) ---> "))
+        if move_p not in range(1, 10):
+            continue
+        if board[move_p - 1] == move_p:
+            board[move_p - 1] = shape
+            break
+    print_board()
+    if check_board(shape):
+        print(f"Player({num}) WIN")
+        exit()
+
+
+def computer_move():
+    moves = ((0, 2, 6, 8), (4,), (1, 3, 5, 7))
+
+    # ایا کامپیوتر میتواند برنده شود؟
+    for i in range(0, 9):
+        if board[i] == i + 1:
+            board[i] = "O"
+            if check_board("O"):
+                print_board()
+                print("Computer WIN")
+                exit()
+            else:
+                board[i] = i + 1
+            # جلوگیری از برنده شدن کاربر درصورت عدم وجود حالت پیروزی برای کامپیوتر
+    h = 0
+    for k in range(0, 9):
+        if board[k] == k + 1:
+            board[k] = "X"
+            if check_board("X"):
+                board[k] = "O"
+                h = 1
+                break
+            else:
+                board[k] = k + 1
+
+    if h == 0:
+        ch = 0
+        for tup in moves:
+            for i in tup:
+                if board[i] == i + 1:
+                    board[i] = 'O'
+                    ch = 1
+                    break
+            if ch == 1:
+                break
+
+    print_board()
+
+
 def print_board():
     j = 1
     for i in board:
@@ -35,44 +89,42 @@ def print_board():
         j += 1
 
 
-def start():
+def start_AI():
     print_board()
     turn = 1
     while turn != 10:
         if turn % 2 != 0:
-            while True:
-                move_p = int(input("turn player pls choose your move(1-9) ---> "))
-                if move_p not in range(1, 10):
-                    continue
-                if board[move_p - 1] == move_p:
-                    board[move_p - 1] = "X"
-                    break
-            print_board()
-        if check_board("X"):
-            print("Player WIN")
-            exit()
+            plyer_move(1, 'X')
+        if turn % 2 == 0:
+            print("turn Computer pls wait... ")
+            sleep(2)
+            computer_move()
+        turn += 1
+    else:
+        print('Equal.')
+
+
+def start_duel():
+    print_board()
+    turn = 1
+    while turn != 10:
+        if turn % 2 != 0:
+            plyer_move(1, 'X')
 
         if turn % 2 == 0:
-            while True:
-                move_c = int(input("turn Computer pls choose your move(1-9) ---> "))
-                if move_c not in range(1, 10):
-                    continue
-                if board[move_c - 1] == move_c:
-                    board[move_c - 1] = "O"
-                    break
-            print_board()
-        if check_board("O"):
-            print("Computer WIN")
-            exit()
+            plyer_move(2, 'O')
 
         turn += 1
-
+    else:
+        print('Equal.')
 
 def menu():
-    x = input("choose what do you want? : 1.start \n--->")
-    if x == '1' or x == 'start':
+    x = input("choose what do you want? : 1.start_duel  2.start_AI \n--->")
+    if x == '1' or x == 'start_duel':
         print("Player : X \nComputer : O")
-        start()
+        start_duel()
+    elif x == '2' or x == 'start_AI':
+        start_AI()
 
 
 menu()
