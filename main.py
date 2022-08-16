@@ -102,6 +102,7 @@ def start_AI():
         turn += 1
     else:
         print('Equal.')
+        exit()
 
 
 def start_duel():
@@ -117,14 +118,21 @@ def start_duel():
         turn += 1
     else:
         print('Equal.')
+        exit()
+
 
 def menu():
-    x = input("choose what do you want? : 1.start_duel  2.start_AI \n--->")
-    if x == '1' or x == 'start_duel':
-        print("Player : X \nComputer : O")
-        start_duel()
-    elif x == '2' or x == 'start_AI':
-        start_AI()
+    while True:
+        x = input("choose what do you want to do?  \n1.start_duel\n2.start_AI\n3.exit\n--enter number-->")
+        if x == '1' or x == 'start_duel':
+            print("Player : X \nComputer : O")
+            start_duel()
+        elif x == '2' or x == 'start_AI':
+            start_AI()
+        elif x == '3' or x == 'exit':
+            exit('by...')
+        else:
+            print('unknown ord')
 
 
 menu()
