@@ -131,12 +131,19 @@ def menu():
                   "3.exit\n"
                   "--enter a number --> ")
         if x == '1':
+            os.system('cls')
             print("Player(1) : X \nPlayer(2) : O")
+            print('3 second to start...')
+            sleep(3)
             start_duel()
         elif x == '2':
+            os.system('cls')
             print("Player : X \nComputer : O")
+            print('3 second to start...')
+            sleep(3)
             start_AI()
         elif x == '3':
+            os.system('cls')
             exit('have a nice time until next time...')
         else:
             os.system('cls')
