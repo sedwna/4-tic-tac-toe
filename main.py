@@ -1,6 +1,7 @@
 # 4-tic-tak-toe
 from termcolor import colored
 from time import sleep
+import os
 
 board = list(range(1, 10))
 
@@ -23,7 +24,7 @@ def check_board(plyr):
 
 def plyer_move(num, shape):
     while True:
-        move_p = int(input(f"turn player({num}) pls choose your move(1-9) ---> "))
+        move_p = int(input(colored(f"turn player({num}) pls choose your move(1-9) ---> ", 'yellow')))
         if move_p not in range(1, 10):
             continue
         if board[move_p - 1] == move_p:
@@ -31,7 +32,7 @@ def plyer_move(num, shape):
             break
     print_board()
     if check_board(shape):
-        print(f"Player({num}) WIN")
+        print(colored(f"Player({num}) WIN", 'green'))
         exit()
 
 
@@ -44,7 +45,7 @@ def computer_move():
             board[i] = "O"
             if check_board("O"):
                 print_board()
-                print("Computer WIN")
+                print(colored("Computer WIN", "green"))
                 exit()
             else:
                 board[i] = i + 1
@@ -75,6 +76,7 @@ def computer_move():
 
 
 def print_board():
+    os.system('cls')
     j = 1
     for i in board:
         end = " "
@@ -123,16 +125,23 @@ def start_duel():
 
 def menu():
     while True:
-        x = input("choose what do you want to do?  \n1.start_duel\n2.start_AI\n3.exit\n--enter number-->")
-        if x == '1' or x == 'start_duel':
-            print("Player : X \nComputer : O")
+        x = input("choose what do you want to do?  \n"
+                  "1.Start with friend\n"
+                  "2.Start with computer\n"
+                  "3.exit\n"
+                  "--enter a number --> ")
+        if x == '1':
+            print("Player(1) : X \nPlayer(2) : O")
             start_duel()
-        elif x == '2' or x == 'start_AI':
+        elif x == '2':
+            print("Player : X \nComputer : O")
             start_AI()
-        elif x == '3' or x == 'exit':
-            exit('by...')
+        elif x == '3':
+            exit('have a nice time until next time...')
         else:
-            print('unknown ord')
+            os.system('cls')
+            print(colored('pls enter a vail number', 'red'))
+        # Clearing the Screen
 
 
 menu()
