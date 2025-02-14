@@ -1,6 +1,6 @@
-# 4-Tic-Tac-Toe
+# Tic-Tac-Py
 
-Welcome to **4-Tic-Tac-Toe**, a Python-based implementation of the classic Tic-Tac-Toe game with a twist! This project allows you to play Tic-Tac-Toe in two modes:
+Welcome to **Tic-Tac-Py**, a Python-based implementation of the classic Tic-Tac-Toe game with a twist! This project allows you to play Tic-Tac-Toe in two modes:
 1. **Player vs. Player**: Play against a friend.
 2. **Player vs. Computer**: Play against an AI opponent.
 
