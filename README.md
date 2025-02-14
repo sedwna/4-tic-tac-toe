@@ -1,7 +1,3 @@
-Here’s a well-structured `README.md` for your **4-Tic-Tac-Toe** project. This README provides an overview of the project, instructions for running it, and details about the gameplay and features.
-
----
-
 # 4-Tic-Tac-Toe
 
 Welcome to **4-Tic-Tac-Toe**, a Python-based implementation of the classic Tic-Tac-Toe game with a twist! This project allows you to play Tic-Tac-Toe in two modes:
