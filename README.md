@@ -20,7 +20,7 @@ The game is designed to run in the terminal and features colorful visuals using 
 
 ## Introduction
 
-**4-Tic-Tac-Toe** is a Python implementation of the classic Tic-Tac-Toe game. The game is played on a 3x3 grid, and players take turns marking a space with their symbol (`X` or `O`). The goal is to be the first to get three of your symbols in a row (horizontally, vertically, or diagonally).
+**Tic-Tac-Py** is a Python implementation of the classic Tic-Tac-Toe game. The game is played on a 3x3 grid, and players take turns marking a space with their symbol (`X` or `O`). The goal is to be the first to get three of your symbols in a row (horizontally, vertically, or diagonally).
 
 This project includes two modes:
 1. **Player vs. Player**: Two players can play against each other.
@@ -51,7 +51,7 @@ The game is designed to be simple, fun, and easy to play in the terminal.
 ### Steps to Run
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/sedwna/4-tic-tac-toe.git
+   git clone https://github.com/sedwna/Tic-Tac-Py.git
    ```
 
 2. **Install Dependencies**:
@@ -145,7 +145,7 @@ Player(1) WIN
 
 ---
 
-Enjoy playing **4-Tic-Tac-Toe**! If you have any questions or feedback, feel free to open an issue or contribute to the project.
+Enjoy playing **Tic-Tac-Py**! If you have any questions or feedback, feel free to open an issue or contribute to the project.
 
 ---
 
